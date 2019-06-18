@@ -1,5 +1,5 @@
 # 面试遇到的问题
-<!-- 1.vue是如何实现mvvm的？   -->
+
 1.一些开放性题目
 
     1.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。
@@ -21,6 +21,58 @@ position的值， relative和absolute分别是相对于谁进行定位的？
 - relative 生成相对定位的元素，相对于其在普通流中的位置进行定位。
 - static 默认值。没有定位，元素出现在正常的流中
 - sticky 生成粘性定位的元素，容器的位置根据正常文档流计算得出
+
+### AJAX
+
+1.AJAX 是一种用于创建更好更快以及交互性更强的 Web 应用程序的技术；
+2.通过Ajax你的 JavaScript 可在不重载页面的情况与 Web 服务器交换数据；
+3.AJAX 在浏览器与 Web 服务器之间使用异步数据传输（HTTP 请求），这样就可使网页从服务器请求少量的信息，而不是整个页面；
+4.AJAX 可使因特网应用程序更小、更快，更友好；
+5.AJAX 是一种独立于 Web 服务器软件的浏览器技术。
+
+创建ajax的过程
+
+        (1)创建`XMLHttpRequest`对象,也就是创建一个异步调用对象.
+    
+        (2)创建一个新的`HTTP`请求,并指定该`HTTP`请求的方法、`URL`及验证信息.
+    
+        (3)设置响应`HTTP`请求状态变化的函数.
+    
+        (4)发送`HTTP`请求.
+    
+        (5)获取异步调用返回的数据.
+    
+        (6)使用JavaScript和DOM实现局部刷新.
+    
+        var xmlHttp = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject('Microsoft.XMLHTTP');
+    
+        xmlHttp.open('GET','demo.php','true');
+    
+        xmlHttp.send()
+    
+        xmlHttp.onreadystatechange = function(){
+    
+            if(xmlHttp.readyState === 4 & xmlHttp.status === 200){
+    
+            }
+    
+        }
+   注意：检测XMLHttpRequest对象的readyState属性，该属性表示请求／响应过程的当前活动阶段，属性值如下：
+        0：未初始化。尚未调用open()方法
+        1：启动。已经调用open()方法，但尚未调用send()方法
+        2：发送。已经调用send()方法，但尚未接收到响应
+        3：接收。已经接收到部分响应数据
+        4:   完成。已经接收到全部响应数据，而且已经可以在客户端使用了（如果写原生的js ajax请求需要等到 readyState==4的时候再做处理）其他的js库已经做好处理了，放心使用
+
+        request.status的http状态码
+
+        1xx（临时响应）表示临时响应并需要请求者继续执行操作的状态代码。
+        2xx （成功）表示成功处理了请求的状态代码。
+        3xx （重定向） 表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。
+        4xx（请求错误） 这些状态代码表示请求可能出错，妨碍了服务器的处理。
+        5xx（服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。
+
+详情：JavaScript学习总结（七）Ajax和Http状态字
 
 如何解决跨域问题
 
@@ -88,7 +140,7 @@ XML和JSON的区别？
     
     (4).传输速度方面。
     
-    JSON的速度要远远快于XML。123456789101112131415
+    JSON的速度要远远快于XML。
 
 谈谈你对webpack的看法
 
@@ -118,7 +170,7 @@ webpack具有requireJs和browserify的功能，但仍有很多自己的新特性
     
     7. 具有强大的Plugin接口，大多是内部插件，使用起来比较灵活
     
-    8.webpack 使用异步 IO 并具有多级缓存。这使得 webpack 很快且在增量编译上更加快123456789101112131415
+    8.webpack 使用异步 IO 并具有多级缓存。这使得 webpack 很快且在增量编译上更加快
 
 说说TCP传输的三次握手四次挥手策略
 
@@ -149,19 +201,6 @@ UDP适用于一次只传送少量数据、对可靠性要求不高的应用环�
 
 作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。
 
-创建ajax过程
-
-    (1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.
-    
-    (2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.
-    
-    (3)设置响应HTTP请求状态变化的函数.
-    
-    (4)发送HTTP请求.
-    
-    (5)获取异步调用返回的数据.
-    
-    (6)使用JavaScript和DOM实现局部刷新.1234567891011
 
 渐进增强和优雅降级
 
@@ -260,7 +299,7 @@ CMD模块方式
     
           // 模块代码
     
-        });12345
+        });
 
 Javascript垃圾回收方法
 
@@ -326,7 +365,7 @@ Javascript垃圾回收方法
 - CSS中的属性（CSS3 transitions、CSS3 3D transforms、Opacity、Canvas、WebGL、Video）会触发GPU渲染，请合理使用。过渡使用会引发手机过耗电增加
 - PC端的在移动端同样适用
 
-![相关阅读：如何做到一秒渲染一个移动页面](https://github.com/cssmagic/blog/issues/20)
+[相关阅读：如何做到一秒渲染一个移动页面](https://github.com/cssmagic/blog/issues/20)
 
 什么是Etag？
 
@@ -964,7 +1003,7 @@ html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的�
     
            <![endif]-->
     
-        如何区分： DOCTYPE声明\新增的结构元素\功能元素1234567891011121314
+        如何区分： DOCTYPE声明\新增的结构元素\功能元素
 
 如何实现浏览器内多个标签页之间的通信?
 
@@ -1152,37 +1191,6 @@ javascript继承的6种方法
 
 详情：JavaScript继承方式详解
 
-创建ajax的过程
-
-        (1)创建`XMLHttpRequest`对象,也就是创建一个异步调用对象.
-    
-        (2)创建一个新的`HTTP`请求,并指定该`HTTP`请求的方法、`URL`及验证信息.
-    
-        (3)设置响应`HTTP`请求状态变化的函数.
-    
-        (4)发送`HTTP`请求.
-    
-        (5)获取异步调用返回的数据.
-    
-        (6)使用JavaScript和DOM实现局部刷新.
-    
-    
-        var xmlHttp = new XMLHttpRequest();
-    
-        xmlHttp.open('GET','demo.php','true');
-    
-        xmlHttp.send()
-    
-        xmlHttp.onreadystatechange = function(){
-    
-            if(xmlHttp.readyState === 4 & xmlHttp.status === 200){
-    
-            }
-    
-        }
-
-详情：JavaScript学习总结（七）Ajax和Http状态字
-
 异步加载和延迟加载
 
     1.异步加载的方案： 动态插入script标签
@@ -1274,7 +1282,7 @@ IE缓存问题
 
 或者：
 
-    open('GET','demo.php?rand=+Math.random()',true);//1
+    open('GET','demo.php?rand=+Math.random()',true);//
 
 Ajax请求的页面历史记录状态问题
 
@@ -1408,7 +1416,7 @@ Promise 实例拥有 then 方法（具有 then 方法的对象，通常被称为
 
 带领团队进行前端领域前沿技术研究及新技术调研，保证团队的技术领先 
 
-负责![前端开发](http://lib.csdn.net/base/javascript)规范制定、功能模块化设计、公共组件搭建等工作，并组织培训。
+负责[前端开发](http://lib.csdn.net/base/javascript)规范制定、功能模块化设计、公共组件搭建等工作，并组织培训。
 
 实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制
 
@@ -1475,15 +1483,15 @@ Promise 实例拥有 then 方法（具有 then 方法的对象，通常被称为
 
     var date = new Date();
     
-    date.setDate(date.getDate() - 1);//真正的删除123
+    date.setDate(date.getDate() - 1);//真正的删除
 
 setDate()方法用于设置一个月的某一天。
 
 2.expires的设置
 
-        document.cookie = 'user='+ encodeURIComponent('name')  + ';expires = ' + new Date(0)1
+        document.cookie = 'user='+ encodeURIComponent('name')  + ';expires = ' + new Date(0)
 
-<strong>，<em>和<b>，<i>标签
+    <strong>,<em>和<b>，<i>标签
 
     <strong> 标签和 <em> 标签一样，用于强调文本，但它强调的程度更强一些。
     
@@ -1491,7 +1499,7 @@ setDate()方法用于设置一个月的某一天。
     
     < b > < i >是视觉要素，分别表示无意义的加粗，无意义的斜体。
     
-    em 和 strong 是表达要素(phrase elements)。1234567
+    em 和 strong 是表达要素(phrase elements)。
 
 说说你对AMD和Commonjs的理解
 
@@ -1531,7 +1539,7 @@ git fetch和git pull的区别
 
     git pull：相当于是从远程获取最新版本并merge到本地
     
-    git fetch：相当于是从远程获取最新版本到本地，不会自动merge123
+    git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 说说你对MVC和MVVM的理解
 

@@ -23,7 +23,7 @@ position的值， relative和absolute分别是相对于谁进行定位的？
 - sticky 生成粘性定位的元素，容器的位置根据正常文档流计算得出
 
 ### AJAX
-
+	Ajax的原理简单来说通过XmlHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用javascript来操作DOM而更新页面
 1.AJAX 是一种用于创建更好更快以及交互性更强的 Web 应用程序的技术；
 2.通过Ajax你的 JavaScript 可在不重载页面的情况与 Web 服务器交换数据；
 3.AJAX 在浏览器与 Web 服务器之间使用异步数据传输（HTTP 请求），这样就可使网页从服务器请求少量的信息，而不是整个页面；
@@ -73,6 +73,38 @@ position的值， relative和absolute分别是相对于谁进行定位的？
         5xx（服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。
 
 详情：JavaScript学习总结（七）Ajax和Http状态字
+
+目前主流浏览器的内核
+浏览器的内核的种类很多，常见的浏览器内核可以分为四种：Trident、Gecko、Blink、Webkit。
+
+（1）Trident (IE内核)
+
+国内很多的双核浏览器的其中一核便是 Trident，美其名曰 "兼容模式"。
+
+代表： IE、傲游、世界之窗浏览器、Avant、腾讯TT、猎豹安全浏览器、360极速浏览器、百度浏览器等。
+
+Window10 发布后，IE 将其内置浏览器命名为 Edge，Edge 最显著的特点就是新内核 EdgeHTML。
+
+（2）Gecko(firefox)
+
+ Mozilla FireFox(火狐浏览器) 采用该内核，Gecko 的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。 可惜这几年已经没落了， 比如 打开速度慢、升级频繁。
+
+（3）webkit(Safari)
+
+Safari 是苹果公司开发的浏览器，所用浏览器内核的名称是大名鼎鼎的 WebKit。
+
+代表浏览器：傲游浏览器3、 Apple Safari (Win/Mac/iPhone/iPad)、Symbian手机浏览器、Android 默认浏览器。
+
+（4）Chromium/Bink(chrome)
+
+在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。
+
+大部分国产浏览器最新版都采用Blink内核。
+
+（5）Presto (Opera)
+
+Presto 是挪威产浏览器 opera 的 "前任" 内核，最新的 opera 浏览器早已将之抛弃从而投入到了谷歌怀抱了
+
 
 如何解决跨域问题
 
@@ -244,22 +276,7 @@ XSS防范方法
 
 尽量采用POST 而非GET 提交表单
 
-XSS与CSRF有什么区别吗？
-
-XSS是获取信息，不需要提前知道其他用户页面的代码和数据包。CSRF是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。
-
-要完成一次CSRF攻击，受害者必须依次完成两个步骤：
-
-    登录受信任网站A，并在本地生成Cookie。
-    
-    在不登出A的情况下，访问危险网站B。123
-
-CSRF的防御
-
-- 服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。
-- 通过验证码的方法
-
-Web Worker 和webSocket
+<!-- Web Worker 和webSocket
 
 worker主线程:
 
@@ -269,9 +286,9 @@ worker主线程:
     
         3.绑定worker.onmessage方法来接收worker发送过来的数据。
     
-        4.可以使用 worker.terminate() 来终止一个worker的执行。1234567
+        4.可以使用 worker.terminate() 来终止一个worker的执行。
 
-WebSocket是Web应用程序的传输协议，它提供了双向的，按序到达的数据流。他是一个Html5协议，WebSocket的连接是持久的，他通过在客户端和服务器之间保持双工连接，服务器的更新可以被及时推送给客户端，而不需要客户端以一定时间间隔去轮询。
+WebSocket是Web应用程序的传输协议，它提供了双向的，按序到达的数据流。他是一个Html5协议，WebSocket的连接是持久的，他通过在客户端和服务器之间保持双工连接，服务器的更新可以被及时推送给客户端，而不需要客户端以一定时间间隔去轮询。 -->
 
 HTTP和HTTPS
 
@@ -340,7 +357,7 @@ Javascript垃圾回收方法
 请求带宽：压缩文件，开启GZIP，
 
 代码层面的优化
-
+- 减少http请求
 - 用hash-table来优化查找
 - 少用全局变量
 - 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能
@@ -367,57 +384,6 @@ Javascript垃圾回收方法
 
 [相关阅读：如何做到一秒渲染一个移动页面](https://github.com/cssmagic/blog/issues/20)
 
-什么是Etag？
-
-当发送一个服务器请求时，浏览器首先会进行缓存过期判断。浏览器根据缓存过期时间判断缓存文件是否过期。
-
-情景一：若没有过期，则不向服务器发送请求，直接使用缓存中的结果，此时我们在浏览器控制台中可以看到 200 OK(from cache) ，此时的情况就是完全使用缓存，浏览器和服务器没有任何交互的。
-
-情景二：若已过期，则向服务器发送请求，此时请求中会带上①中设置的文件修改时间，和Etag
-
-然后，进行资源更新判断。服务器根据浏览器传过来的文件修改时间，判断自浏览器上一次请求之后，文件是不是没有被修改过；根据Etag，判断文件内容自上一次请求之后，有没有发生变化
-
-情形一：若两种判断的结论都是文件没有被修改过，则服务器就不给浏览器发index.html的内容了，直接告诉它，文件没有被修改过，你用你那边的缓存吧—— 304 Not Modified，此时浏览器就会从本地缓存中获取index.html的内容。此时的情况叫协议缓存，浏览器和服务器之间有一次请求交互。
-
-情形二：若修改时间和文件内容判断有任意一个没有通过，则服务器会受理此次请求，之后的操作同①
-
-① 只有get请求会被缓存，post请求不会
-
-Expires和Cache-Control
-
-Expires要求客户端和服务端的时钟严格同步。HTTP1.1引入Cache-Control来克服Expires头的限制。如果max-age和Expires同时出现，则max-age有更高的优先级。
-
-        Cache-Control: no-cache, private, max-age=0
-    
-        ETag: abcde
-    
-        Expires: Thu, 15 Apr 2014 20:00:00 GMT
-    
-        Pragma: private
-  
-        Last-Modified: $now // RFC1123 format123456789
-
-ETag应用:
-
-Etag由服务器端生成，客户端通过If-Match或者说If-None-Match这个条件判断请求来验证资源是否修改。常见的是使用If-None-Match。请求一个文件的流程可能如下：
-
-====第一次请求===
-
-    1.客户端发起 HTTP GET 请求一个文件；
-    
-    2.服务器处理请求，返回文件内容和一堆Header，当然包括Etag(例如"2e681a-6-5d044840")(假设服务器支持Etag生成和已经开启了Etag).状态码200
-
-====第二次请求===
-
-    客户端发起 HTTP GET 请求一个文件，注意这个时候客户端同时发送一个If-None-Match头，这个头的内容就是第一次请求时服务器返回的Etag：2e681a-6-5d0448402.服务器判断发送过来的Etag和计算出来的Etag匹配，因此If-None-Match为False，不返回200，返回304，客户端继续使用本地缓存；流程很简单，问题是，如果服务器又设置了Cache-Control:max-age和Expires呢，怎么办
-
-答案是同时使用，也就是说在完全匹配If-Modified-Since和If-None-Match即检查完修改时间和Etag之后，
-
-服务器才能返回304.(不要陷入到底使用谁的问题怪圈)
-
-为什么使用Etag请求头?
-
-Etag 主要为了解决 Last-Modified 无法解决的一些问题。
 
 栈和队列的区别?
 
@@ -536,17 +502,6 @@ defer并行加载js文件，会按照页面上script标签的顺序执行
 
 async并行加载js文件，下载完成立即执行，不会按照页面上script标签的顺序执行
 
-谈谈浮动和清除浮动
-
-浮动的框可以向左或向右移动，直到他的外边缘碰到包含框或另一个浮动框的边框为止。由于浮动框不在文档的普通流中，所以文档的普通流的块框表现得就像浮动框不存在一样。浮动的块框会漂浮在文档普通流的块框上。
-
-如何评价AngularJS和BackboneJS
-
-backbone具有依赖性，依赖underscore.js。Backbone + Underscore + jQuery(or Zepto) 就比一个AngularJS 多出了2 次HTTP请求.
-
-Backbone的Model没有与UI视图数据绑定，而是需要在View中自行操作DOM来更新或读取UI数据。AngularJS与此相反，Model直接与UI视图绑定，Model与UI视图的关系，通过directive封装，AngularJS内置的通用directive，就能实现大部分操作了，也就是说，基本不必关心Model与UI视图的关系，直接操作Model就行了，UI视图自动更新。
-
-AngularJS的directive，你输入特定数据，他就能输出相应UI视图。是一个比较完善的前端MVW框架，包含模板，数据双向绑定，路由，模块化，服务，依赖注入等所有功能，模板功能强大丰富，并且是声明式的，自带了丰富的 Angular 指令。
 
 用过哪些设计模式？
 
@@ -607,6 +562,7 @@ Html5中的Web Storage包括了两种存储方式：sessionStorage和localStorag
 sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。
 
 而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+![](http://upload-images.jianshu.io/upload_images/5306546-1778e7373a1a7e0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 web storage和cookie的区别
 
@@ -1005,20 +961,6 @@ html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的�
     
         如何区分： DOCTYPE声明\新增的结构元素\功能元素
 
-如何实现浏览器内多个标签页之间的通信?
-
-        调用localstorge、cookies等本地存储方式1
-
-什么是 FOUC（无样式内容闪烁）？你如何来避免 FOUC？
-
-         FOUC - Flash Of Unstyled Content 文档样式闪烁
-    
-         <style type="text/css" media="all">@import "../fouc.css";</style>
-    
-        而引用CSS文件的@import就是造成这个问题的罪魁祸首。IE会先加载整个HTML文档的DOM，然后再去导入外部的CSS文件，因此，在页面DOM加载完成到CSS导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。
-    
-         解决方法简单的出奇，只要在<head>之间加入一个<link>或者<script>元素就可以了。1234567
-
 null和undefined的区别？
 
 null是一个表示”无”的对象，转为数值时为0；undefined是一个表示”无”的原始值，转为数值时为NaN。
@@ -1202,15 +1144,6 @@ javascript继承的6种方法
     4.创建并插入iframe，让它异步执行js
     
     5.延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。
-    
-
-Flash、Ajax各自的优缺点，在使用中如何取舍？
-
-- Flash适合处理多媒体、矢量图形、访问机器；对CSS、处理文本上不足，不容易被搜索。
-
--Ajax对CSS、文本支持很好，支持搜索；多媒体、矢量图形、机器访问不足。
-
-- 共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作DOM
 
 请解释一下 JavaScript 的同源策略。
 
@@ -1501,11 +1434,11 @@ setDate()方法用于设置一个月的某一天。
     
     em 和 strong 是表达要素(phrase elements)。
 
-说说你对AMD和Commonjs的理解
+<!-- 说说你对AMD和Commonjs的理解
 
 CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数。
 
-AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的。
+AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的。 -->
 
 document.write()的用法
 
@@ -1534,12 +1467,6 @@ document.write只能重绘整个页面。innerHTML可以重绘页面的一部分
         }
     
     alert(GetBytes("你好,as"));
-
-git fetch和git pull的区别
-
-    git pull：相当于是从远程获取最新版本并merge到本地
-    
-    git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 说说你对MVC和MVVM的理解
 
@@ -1580,45 +1507,6 @@ property就是dom元素在js中作为对象拥有的属性。
 对于html的标准属性来说，attribute和property是同步的，是会自动更新的，
 
 但是对于自定义的属性来说，他们是不同步的，
-
-说说网络分层里七层模型是哪七层
-
-- 应用层：应用层、表示层、会话层（从上往下）（HTTP、FTP、SMTP、DNS）
-- 传输层（TCP和UDP）
-- 网络层（IP）
-- 物理和数据链路层（以太网）
-
-每一层的作用如下：
-
-    物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）
-    数据链路层：将比特组装成帧和点到点的传递（帧Frame）
-    网络层：负责数据包从源到宿的传递和网际互连（包PackeT）
-    传输层：提供端到端的可靠报文传递和错误恢复（段Segment）
-    会话层：建立、管理和终止会话（会话协议数据单元SPDU）
-    表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）
-    应用层：允许访问OSI环境的手段（应用协议数据单元APDU）12345678
-
-各种协议
-
-ICMP协议： 因特网控制报文协议。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。 
-
-TFTP协议： 是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。 
-
-HTTP协议： 超文本传输协议，是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。 
-
-DHCP协议： 动态主机配置协议，是一种让系统得以连接到网络上，并获取所需要的配置参数手段。
-
-说说mongoDB和MySQL的区别
-
-MySQL是传统的关系型数据库，MongoDB则是非关系型数据库
-
-MongoDB以BSON结构（二进制）进行存储，对海量数据存储有着很明显的优势。
-
-对比传统关系型数据库,NoSQL有着非常显著的性能和扩展性优势，与关系型数据库相比，MongoDB的优点有： 
-
-①弱一致性（最终一致），更能保证用户的访问速度： 
-
-②文档结构的存储方式，能够更便捷的获取数据。
 
 讲讲304缓存的原理
 

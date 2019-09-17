@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>lidan</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="stylesheet" href="./set/vue.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="#/">Home</a>
+    </nav>
+    <div id="app">剑未配妥，出门便已是江湖</div>
+    <script>
+      window.$docsify = {
+        name: "",
+        //页面右上角的挂件
+        repo: "https://github.com/dandda/dandda.github.io",
+        loadSidebar: true,
+        subMaxLevel: 1,
+        // 自动为每个页面增加标题
+        autoHeader: true,
+        // 小屏设备下合并导航栏到侧边栏。
+        mergeNavbar: true,
+        // 配置日期格式
+        formatUpdated: "{YYYY}-{MM}-{DD} {HH}:{mm}",
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
+        pagination: {
+          previousText: "上一章节",
+          nextText: "下一章节",
+          crossChapter: true
+        },
+        // 搜索的配置
+        search: "auto", // 默认值
 
-<body>
-  <h1>李丹的个人主页</h1>
-  <ul>
-    <li>面试总结(interview summary)</li>
-  </ul>
-</body>
-
+        search: {
+          noData: "No Results!",
+          depth: 6
+        }
+      };
+    </script>
+    <script src="/set/docsify.min.js"></script>
+    <script src="/set/search.min.js"></script>
+    <script src="/set/docsify-pagination.min.js"></script>
+  </body>
 </html>

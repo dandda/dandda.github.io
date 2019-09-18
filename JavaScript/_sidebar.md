@@ -1,2 +1,4 @@
-- [浅复制和深复制](Javascript/shallow-and-deep-copy.md)
-- [循环遍历](Javascript/loop-through.md)
+- [浅复制和深复制](JavaScript/shallow-and-deep-copy.md)
+- [循环遍历](JavaScript/loop-through.md)
+- Object
+  - [delete 操作符](JavaScript/delete-operator.md)

@@ -73,32 +73,42 @@ const tree = {
 let arr = Object.keys(tree);
 // 返回对象的属性名的一个数组集合
 console.log(arr); //['color','breed','name']
+for (let ele of arr) {
+  console.log(ele);
+  // color
+  // bredd
+  // name
+}
 ```
 
 <h4>3. Object.values</h4>
 
 ```javascript
-let value = Object.values(tree);
+const value = Object.values(tree);
 console.log(value); //['green','arbor','cedar']
+for (const ele of value) {
+  console.log(ele);
+  // green
+  // arbor
+  // cedar
+}
 ```
 
 <h4>4. Object.entries</h4>
 
 ```javascript
 const girl = {
-  name:'coo',
-  height:'168cm',
-  sing(){
-    console.log(111)
+  name: "coo",
+  height: "168cm",
+  sing() {
+    console.log(111);
   }
-}
+};
 // 返回键值对，返回的顺序不一定按照对象定义的顺序
-for (let [key,value] of Object.entries(tree)) {
-  console.log(key+':'+value)
+for (let [key, value] of Object.entries(tree)) {
+  console.log(key + ":" + value);
   // name:coo
   // height: 168cm
-  // sing:sing(){
-    console.log(111)
-  }
+  // sing:sing(){ console.log(111) }
 }
 ```

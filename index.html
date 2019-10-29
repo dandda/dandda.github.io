@@ -17,6 +17,30 @@
     </nav>
     <div id="app">剑未配妥，出门便已是江湖</div>
     <script>
+      let cats = [
+        {
+          name: "lulu",
+          breed: "曼赤肯"
+        },
+        {
+          name: "lala",
+          breed: "曼赤肯"
+        },
+        {
+          name: "tt",
+          breed: "英国短毛猫"
+        }
+      ];
+
+      const num = ["1", "2", "11", "15", "3", "a"];
+      function jerkMax(arr_obj) {
+        return Math.max.apply(null, arr_obj);
+      }
+      let arr = [2, 3, 4, 10, 7, 98];
+      let i = jerkMax(num);
+
+      console.log("object", i);
+      console.log(cats);
       window.$docsify = {
         name: "",
         //页面右上角的挂件

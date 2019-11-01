@@ -1,1 +1,1 @@
-- [commit 注释](commit-msg.md)
+- [git commit 注释](git/commit-msg.md)

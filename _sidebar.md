@@ -14,5 +14,6 @@
 - Tool
 
   - [npm](npm/README.md)
+  - [mac](mac/README.md)
 
 - [Git](git/README.md)

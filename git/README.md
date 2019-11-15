@@ -26,6 +26,8 @@ git diff (查看作了哪些操作)
 
 ### 学习 git:
 
+[git 教程-廖雪峰](https://www.liaoxuefeng.com/wiki/896043488029600)
+
 [通过挑战关卡的方式学习 git](https://learngitbranching.js.org/)
 
 [git 的书](https://git-scm.com/book/zh/v2)

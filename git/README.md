@@ -12,6 +12,12 @@ git checkout . (撤销所有的修改)
 
 git status (查看有没有要提交的更改)
 
+> git commit --amend(修改最新的，还未 push 上去的提交信息)
+>
+> git rebase -i HEAD~X (修改你任何你想改的提交信息)
+>
+> 暂时是这样理解。我现在还是不清楚这两个命令，以后再来弄懂。
+
 ---
 
 git remote rm origin

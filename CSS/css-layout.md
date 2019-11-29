@@ -32,4 +32,15 @@ header{
 footer{
   flex:1
 }
+
+<!-- 法3 calc() -->
+.contain {
+  height:100%;
+}
+header {
+  height:100px;
+}
+footer {
+  height:calc(100% - 100px)
+}
 ```

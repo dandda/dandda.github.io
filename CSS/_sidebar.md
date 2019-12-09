@@ -4,3 +4,4 @@
 - [修改 type=search 的 input 默认样式](CSS/input[type=search].md)
 - [css 中 function](CSS/css-function.md)
 - [css 技巧](CSS/css-tricks.md)
+- [css 中伪元素的运用](CSS/css-pseudo.md)

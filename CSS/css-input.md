@@ -69,7 +69,7 @@ input[type="search"]:focus {
 }
 ```
 
-![单选按钮样式](https://i.loli.net/2019/12/10/rvU7WcFfBpS8ZsO.png)
+![checkbox.png](https://i.loli.net/2019/12/11/nQpIUztAJCvmBPZ.png)
 
 2.
 

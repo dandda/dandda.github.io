@@ -5,3 +5,4 @@
 - [css 中 function](CSS/css-function.md)
 - [css 技巧](CSS/css-tricks.md)
 - [css 中伪元素的运用](CSS/css-pseudo.md)
+- [纯 css 画三角形](CSS/css-triangle.md)

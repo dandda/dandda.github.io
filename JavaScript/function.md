@@ -54,7 +54,7 @@ jiecheng(4); //24
 
 > **例子 2:多叉树**
 
-![多叉树.jpg](https://i.loli.net/2019/10/25/zTYRBdwWNV2D6ib.jpg)
+![多叉树.jpg](https://i.loli.net/2019/12/11/41pWURtI5ixqQsF.jpg)
 
 ```javascript
 let handleData = {

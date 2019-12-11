@@ -1,7 +1,7 @@
 - [css 选择器](CSS/css-selectors.md)
 - [css 的命名规范](CSS/name.md)
 - [css 布局](CSS/css-layout.md)
-- [修改 type=search 的 input 默认样式](CSS/input[type=search].md)
+- [修改各种 type 类型的 input 默认样式](CSS/css-input.md)
 - [css 中 function](CSS/css-function.md)
 - [css 技巧](CSS/css-tricks.md)
 - [css 中伪元素的运用](CSS/css-pseudo.md)

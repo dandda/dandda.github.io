@@ -37,6 +37,8 @@
 <hr class="hr-text" data-content="OR">
 ```
 
+---
+
 **画分割线的第二种方法：伪元素和 flexbox**
 
 ```css

@@ -10,6 +10,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <link rel="stylesheet" href="./set/vue.css" />
+    <link rel="dns-prefetch" href="//img.alicdn.com" />
   </head>
   <style>
     input[type="search"] {
@@ -31,11 +32,24 @@
     }
   </style>
   <body>
+    <!-- 遇到的问题 -->
+    <!-- 数组与数组的比较是不能用 ===  -->
+    <!-- 清楚数据结构啊 -->
+    <!-- 为什么有些内容搜索不到，例如for...in -->
     <nav>
       <a href="#/">Home</a>
     </nav>
     <div id="app"></div>
     <script>
+      let globalNum = 1;
+      function my() {
+        for (let i = 100; i--; ) {
+          globalNum += i;
+          console.log("101", globalNum);
+        }
+      }
+      my();
+      console.log("globalNum", globalNum);
       let cats = [
         {
           name: "lulu",

@@ -3,6 +3,7 @@
   - [JavaScript](JavaScript/README.md)
   - [CSS](CSS/README.md)
   - [DOM](DOM/README.md)
+  - [web 性能优化](web_performance_optimization/README.md)
 
 - Frame
 

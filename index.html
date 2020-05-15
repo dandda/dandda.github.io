@@ -30,47 +30,49 @@
     img {
       width: 25%;
     }
+    .cell {
+      display: table-cell;
+    }
   </style>
   <body>
     <!-- 遇到的问题 -->
-    <!-- 数组与数组的比较是不能用 ===  -->
     <!-- 清楚数据结构啊 -->
-    <!-- 为什么有些内容搜索不到，例如for...in -->
+    <!-- 
+    <!-- vue 前端显示过多数据（即渲染数据）时，会出现加载慢的问题。即长列表的性能优化。 -->
+
+    <!-- 官网后台遇到的问题
+    1.搞清get,put ,delete,post的区别  
+  2. 图片上传 new formData()
+3. 全局变量  import等必须清楚
+4. 请求接口时的先后顺序   await async promise
+
+    理清分页的思路 有时间去看看导出excel表格不使用插件如何做
+  
+    -->
     <nav>
       <a href="#/">Home</a>
     </nav>
     <div id="app"></div>
     <script>
-      let globalNum = 1;
-      function my() {
-        for (let i = 100; i--; ) {
-          globalNum += i;
-          console.log("101", globalNum);
+      // js-exercises,No.10第九道题目。
+      let xhr = window.XMLHttpRequest
+        ? new XMLHttpRequest()
+        : new ActiveXOBject("Microsoft.XMLHTTP");
+      console.log("xhr", xhr);
+      xhr.open("GET", "http://192.168.0.13:8080/test/editor/get/1");
+      xhr.onreadystatechange = function() {
+        // 如readyState的值为4，表示已经接收完数据，可以开始对数据处理。
+        if (xhr.readyState == 4) {
+          // xhr.status 保存了服务的响应码，  200表示正常响应
+          if (xhr.status == 200) {
+            let resp = JSON.parse(xhr.responseText);
+            console.log("rsp", resp.data.content);
+            let div = document.getElementById("test");
+            div.innerHTML = resp.data.content;
+          }
         }
-      }
-      my();
-      console.log("globalNum", globalNum);
-      let cats = [
-        {
-          name: "lulu",
-          breed: "曼赤肯"
-        },
-        {
-          name: "lala",
-          breed: "曼赤肯"
-        },
-        {
-          name: "tt",
-          breed: "英国短毛猫"
-        }
-      ];
-
-      const arr = [1, 2, 4];
-      arr[2] = 8;
-      console.log(arr);
-
-      // console.log("object", i);
-      console.log(cats);
+      };
+      xhr.send(null);
       window.$docsify = {
         name: "",
         //页面右上角的挂件

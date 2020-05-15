@@ -75,3 +75,4 @@ function my() {
 
 1. [web 性能优化](https://xuetengfei.github.io/#/Progress/web-performance-optimization)
 2. [web 性能优化](https://blog.csdn.net/mahoking/article/details/51472697)
+3. [web 性能讨论](https://github.com/barretlee/performance-column/issues)

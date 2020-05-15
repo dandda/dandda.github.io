@@ -4,6 +4,7 @@
   - [CSS](CSS/README.md)
   - [DOM](DOM/README.md)
   - [web 性能优化](web_performance_optimization/README.md)
+  - [Canvas](Canvas/README.md)
 
 - Frame
 
@@ -16,5 +17,6 @@
 
   - [npm](npm/README.md)
   - [mac](mac/README.md)
+  - [插件的坑](plugin/README.md)
 
 - [Git](git/README.md)

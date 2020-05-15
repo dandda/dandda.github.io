@@ -77,3 +77,7 @@
        }
      </style>
    ```
+
+#### 通过阿里 iconfont 引入图标库
+
+在 vue 将阿里 iconfont 的项目里用 symbol 的方式引入(已经是将图标下载到本地的)，在 index.html 使用 script 标签导入会报错。在 main.js 里使用 import 引入就没问题了

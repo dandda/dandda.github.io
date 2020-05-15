@@ -6,9 +6,14 @@
   - [时间戳](JavaScript/time-stamp.md)
 - **Array**
   - [数组方法](JavaScript/array-methods.md)
+  - [数组去重](JavaScript/array-deduplication.md)
+  - [数组比较](JavaScript/array-compare.md)
+- [对数据处理的一些应用场景](JavaScript/deal-data.md)
 - [for 循环往数组中 push 对象的引用地址问题](JavaScript/problem.md)
 - [函数](JavaScript/function.md)
 - [字符串](JavaScript/string.md)
 - **ES6**
   - [let 与 const](JavaScript/let-and-const.md)
 - [小技巧](JavaScript/tips.md)
+- [代码段](JavaScript/snippet.md)
+- [onload 事件](JavaScript/onload.md)

@@ -12,6 +12,8 @@ git checkout . (撤销所有的修改)
 
 git status (查看有没有要提交的更改)
 
+git merge '分支名'（命令用于合并指定分支到当前分支）
+
 > git commit --amend(修改最新的，还未 push 上去的提交信息)
 >
 > git rebase -i HEAD~X (修改你任何你想改的提交信息)

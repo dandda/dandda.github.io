@@ -134,3 +134,28 @@ input[type="search"]:focus {
 ```
 
 ![checkbox2.png](https://i.loli.net/2019/12/10/pxOZLoMI38gzCQj.png)
+
+##### 修改原生下拉框 select 的 input 默认样式
+
+```css
+/* 修改默认样式 */
+select {
+  border: none;
+  background-color: transparent;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+/* 要让select 文字居中(option就不知道了) 光写text-align:center无效 */
+select {
+  /* 这两个属性都设为center,select文字就可以居中。注意不能设置具体width数值。 */
+  text-align: center;
+  text-align-last: center;
+  /* 宽度为auto,上面两个属性才有效 */
+  width: auto;
+}
+```
+
+> 如果以上都不能满足，那就只能将 select 隐藏，使用 label 指向 select 自己写。

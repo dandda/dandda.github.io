@@ -6,6 +6,7 @@
 - [css 技巧](CSS/css-tricks.md)
 - [css 中伪元素的运用](CSS/css-pseudo.md)
 - [纯 css 画三角形](CSS/css-triangle.md)
-- [display:table-cell](CSS/table-cell.md)
+- [table 布局](CSS/table.md)
 - [元素高度 100%的问题](Css/height100.md)
 - [img](Css/img.md)
+- [文字换行的几个方法](Css/wrap.md)

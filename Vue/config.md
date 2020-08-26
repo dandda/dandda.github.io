@@ -29,7 +29,7 @@ VUE_APP_BASE_API=http://www.tecxen.com
 
 2.  根目录新建 `vue.config.js`文件
 
-这里只配置压缩并去掉 console,还可以配置其他好多东西（查看文档）
+- 这里只配置压缩并去掉 console,还可以配置其他好多东西（查看文档）
 
 ```javascript
 //压缩代码并去掉console
@@ -40,6 +40,7 @@ module.exports = {
   transpileDependencies: ["vue-baidu-map"], //这个是百度地图的插件。需要处理es6为es5（babel不会处理node_modules里的东西）.不然打包时会报错,假如还使用了其他类似的插件，都需要在这里添加一下。
   configureWebpack: config => {
     if (process.env.NODE_ENV === "production") {
+      // 生产环境
       const plugins = [];
       //启用代码压缩
       plugins.push(
@@ -57,7 +58,28 @@ module.exports = {
       );
 
       config.plugins = [...config.plugins, ...plugins];
+    } else {
+      // 开发环境
     }
+  }
+};
+```
+
+- 别名配置 百度来的，有待检验
+
+```javascript
+const path = require("path");
+function resolve(dir) {
+  return path.join(___dirname, dir);
+}
+module.exports = {
+  chainWebpack: config => {
+    config.resolve.alias
+      .set("@", resolve("src"))
+      .set("style", resolve("src/asset/style"));
+
+    // filenameHashing:false
+    // true则将静态资源文件名转为带有哈希值的名字。
   }
 };
 ```

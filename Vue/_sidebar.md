@@ -2,3 +2,4 @@
 - [犯的比较多的低级错误](Vue/mistake.md)
 - [数据渲染时闪烁问题](Vue/flicker.md)
 - [路由](Vue/vue-router.md)
+- [axios](Vue/axios.md)

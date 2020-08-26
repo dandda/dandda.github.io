@@ -1,0 +1,2 @@
+- [移动端的适配](mobile/adpatation.md)
+- [同时适配 pc 端和 mobile 端的方法](pc&mobile.md)

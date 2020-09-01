@@ -1,12 +1,21 @@
-1.vue 是如何实现 mvvm 的？  
-2.vue 与 react 的区别
-3 vue 有那几种导航钩子
+#### 1.vue 是如何实现 mvvm 的,或者说对 mvvm 框架的理解？
+
+MVVM 表示的是 Model-View-ViewModel
+Model:模型层，负责处理业务逻辑和服务器端进行交互
+View:视图层：负责将数据模型转化为 UI 展示出来
+ViewModel:视图模型层，用来连接 Model 和 view,是 Model 和 View 之间的通信桥梁。
+vue 框架起到的就是 ViewModel 层的作用。
+
+#### 2.vue 与 react 的区别
+
+#### 3 vue 有那几种导航钩子
+
 三种，
 一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。
 第二种：组件内的钩子；
 第三种：单独路由独享组件
 
-4 vue 的生命周期，vue-router 的生命周期？
+#### 4 vue 的生命周期，vue-router 的生命周期？
 
 - vue 的生命周期：总共分为 8 个阶段创建前/后，载入前/后，更新前/后，销毁前/后。
   创建前/后： 在 beforeCreated 阶段，vue 实例的挂载元素$el和数据对象data都为undefined，还未初始化。在created阶段，vue实例的数据对象data有了，$el 还没有。
@@ -69,3 +78,7 @@ module.exports{
   }
 }
 ```
+
+#### 5.vue 的双向数据绑定原理？
+
+vue.js 是采用数据劫持结合发布者-订阅者模式的方式，vue2 通过 Object.defineProperty()来数据劫持，vue3 是通过 proxy.总结就是收集数据依赖，然后装到订阅器里，匹配 dom 中的指令，进行赋值。

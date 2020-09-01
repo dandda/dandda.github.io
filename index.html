@@ -30,9 +30,6 @@
     img {
       width: 25%;
     }
-    .cell {
-      display: table-cell;
-    }
   </style>
   <body>
     <!-- 遇到的问题 -->
@@ -45,7 +42,6 @@
   2. 图片上传 new formData()
 3. 全局变量  import等必须清楚
 4. 请求接口时的先后顺序   await async promise
-
     理清分页的思路 有时间去看看导出excel表格不使用插件如何做
   
     -->
@@ -55,24 +51,7 @@
     <div id="app"></div>
     <script>
       // js-exercises,No.10第九道题目。
-      let xhr = window.XMLHttpRequest
-        ? new XMLHttpRequest()
-        : new ActiveXOBject("Microsoft.XMLHTTP");
-      console.log("xhr", xhr);
-      xhr.open("GET", "http://192.168.0.13:8080/test/editor/get/1");
-      xhr.onreadystatechange = function() {
-        // 如readyState的值为4，表示已经接收完数据，可以开始对数据处理。
-        if (xhr.readyState == 4) {
-          // xhr.status 保存了服务的响应码，  200表示正常响应
-          if (xhr.status == 200) {
-            let resp = JSON.parse(xhr.responseText);
-            console.log("rsp", resp.data.content);
-            let div = document.getElementById("test");
-            div.innerHTML = resp.data.content;
-          }
-        }
-      };
-      xhr.send(null);
+
       window.$docsify = {
         name: "",
         //页面右上角的挂件

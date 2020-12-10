@@ -54,28 +54,33 @@
      
     </div>
     <script>
-let a = 9
-a= 7
-console.log("a",a);
-    //  first_day:安装svn,axure rp9等工作中用到的软件。看原型图，看需求文档（ps：为了在Mac上安装IE，实验过不少方法，但是还是没解决哭）
-    //  third_day:拉了深圳航空服务信息系统的代码。
-
+let str = "aaaaggkkkkkkktttkt";
+   
+function numInstring(str) {
+            var text = "";
+            //循环的套出每个字符出现的次数 str会慢慢的变短直到为空
+            while (str != "") {
+                //先将字符打散
+                // var newstr = str.split("");
+               var newstr = [...str]
+                var count = 0;
+                //求得第一个字符出现的次数
+                for (var i = 0; i < newstr.length; i++) {
+                    if (newstr[0] == newstr[i]) {
+                        count++;
+                    }
+                }
+                //在字符串中删掉跟第一个字符一样的所有字符
+                var re = new RegExp(newstr[0], "g");
+                str = str.replace(re, "");
+                text += newstr[0] + ":" + count + "次;";
+            }
+            console.log('text',text);
+            return text; //我这里返回的是一段文本 可以自己改写成自己想要的形式
+        }
+        numInstring(str)
       // js-exercises,No.10第九道题目。
-function randomString(len){
-  // 字符串的长度
-  len = len ||32
-  let t = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678',a=t.length,newString='';
-  for(let i = 0;i<len;i++){
-    // Math.random()表示从0-1之间的随机数(包括0，不包括1)。charAt()字符串方法，返回指定位置的字符
-    newString += t.charAt(Math.floor(Math.random()*a))
-  }
-  return newString
 
-}
-let re = randomString(8)
-console.log('re',re);
-let str = Math.random().toString(36).slice(-6)
-console.log('str',str);
       window.$docsify = {
         name: "",
         //页面右上角的挂件

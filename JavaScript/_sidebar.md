@@ -18,5 +18,5 @@
 - [小技巧](JavaScript/tips.md)
 - [代码段](JavaScript/snippet.md)
 - [onload 事件](JavaScript/onload.md)
-- [js 存储方式及其区别](storage-method.md)
-- [常用的正则表达式](regular-expression.md)
+- [js 存储方式及其区别](JavaScript/storage-method.md)
+- [常用的正则表达式](JavaScript/regular-expression.md)

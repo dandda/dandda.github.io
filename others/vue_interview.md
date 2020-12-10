@@ -122,3 +122,44 @@ console.log("re", re);
 let str = Math.random().toString(36).slice(-6);
 console.log("str", str);
 ```
+
+#### 9.统计字符串中的每个字符的个数
+
+```js
+let str = "aaaaggkkkkkkktttkt";
+
+// 方法一:使用对象
+function count(str) {
+  let obj = {};
+  str.replace(/[a-z]/g, (i) => {
+    !obj[i] ? (obj[i] = 1) : obj[i]++;
+  });
+  console.log("obj", obj);
+}
+count(str);
+
+// 方法二：将字符转成数组
+
+            var text = "";
+            //循环的套出每个字符出现的次数 str会慢慢的变短直到为空
+            while (str != "") {
+                //先将字符转成数组
+                // var newstr = str.split("");
+               var newstr = [...str]
+                var count = 0;
+                //求得第一个字符出现的次数
+                for (var i = 0; i < newstr.length; i++) {
+                    if (newstr[0] == newstr[i]) {
+                        count++;
+                    }
+                }
+                //在字符串中删掉跟第一个字符一样的所有字符
+                var re = new RegExp(newstr[0], "g");
+                str = str.replace(re, "");
+                text += newstr[0] + ":" + count + "次;";
+            }
+            console.log('text',text);
+            return text; //我这里返回的是一段文本 可以自己改写成自己想要的形式
+        }
+        numInstring(str)
+```

@@ -1,3 +1,4 @@
+- [判断数据类型的方法](JavaScript/judge-datatype.md)
 - [浅复制和深复制](JavaScript/shallow-and-deep-copy.md)
 - [循环遍历](JavaScript/loop-through.md)
 - Object
@@ -17,3 +18,5 @@
 - [小技巧](JavaScript/tips.md)
 - [代码段](JavaScript/snippet.md)
 - [onload 事件](JavaScript/onload.md)
+- [js 存储方式及其区别](storage-method.md)
+- [常用的正则表达式](regular-expression.md)

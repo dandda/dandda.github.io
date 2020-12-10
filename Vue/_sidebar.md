@@ -3,3 +3,5 @@
 - [数据渲染时闪烁问题](Vue/flicker.md)
 - [路由](Vue/vue-router.md)
 - [axios](Vue/axios.md)
+- [vuex](Vue/vuex.md)
+- [父子组件加载的顺序](Vue/parent-child-component.md)

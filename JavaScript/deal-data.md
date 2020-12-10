@@ -5,50 +5,40 @@
 ```javascript
 let device_arr = [
   {
-    id: 1421,
-    pid: 14,
-    equipmentName: "节点控制单元（显示）",
+    id: 1,
+    equipmentName: "设备类别1",
     equipmentNicname: "一体机",
     num: 3,
-    prid: 83
   },
   {
-    id: 1422,
-    pid: 14,
-    equipmentName: "节点控制单元（显示）",
+    id: 2,
+    equipmentName: "设备类别1",
     equipmentNicname: "投影机",
     num: 2,
-    prid: 84
   },
   {
-    id: 1423,
-    pid: 14,
-    equipmentName: "节点控制单元（幕布）",
+    id: 3,
+    equipmentName: "设备类别2",
     equipmentNicname: "幕布",
     num: 4,
-    prid: 85
   },
   {
-    id: 1424,
-    pid: 14,
-    equipmentName: "节点控制单元（扩声）",
-    equipmentNicname: "功放",
+    id: 4,
+    equipmentName: "设备类别3",
+    equipmentNicname: "灯光",
     num: 4,
-    prid: 86
   },
   {
-    id: 1425,
-    pid: 14,
-    equipmentName: "节点控制单元（电脑）",
+    id: 5,
+    equipmentName: "设备类别4",
     equipmentNicname: "电脑",
     num: 2,
-    prid: 87
-  }
+  },
 ];
-// 如上数据，一体机和投影机对应的都是同一个产品节点控制单元(显示)。让这两条数据只显示一条并且这两条数据里num相加。
+// 如上数据，一体机和投影机对应的都是同一个设备类别。让这两条数据只显示一条并且这两条数据里num相加。
 let new_device_arr = [];
 device_arr.map((d, i) => {
-  let result = new_device_arr.findIndex(n => {
+  let result = new_device_arr.findIndex((n) => {
     return d.equipmentName === n.equipmentName;
   });
   if (result !== -1) {
@@ -58,57 +48,55 @@ device_arr.map((d, i) => {
   }
 });
 console.log("new_deviec_arr", new_device_arr);
-// [{id: 1421, pid: 14, equipmentName: "节点控制单元（显示）", equipmentNicname: "一体机", num: 5, prid: 83}, {id: 1423, pid: 14, equipmentName: "节点控制单元（幕布）", equipmentNicname: "幕布", num: 4, prid: 85},{id: 1424, pid: 14, equipmentName: "节点控制单元（扩声）", equipmentNicname: "功放", num: 4,  prid: 86}, {id: 1425, pid: 14, equipmentName: "节点控制单元（电脑）", equipmentNicname: "电脑", num: 2,  prid: 87}]
+// [{id: 1,  equipmentName: "设备类别1", equipmentNicname: "一体机", num: 5}, {id: 2, equipmentName: "设备类别2", equipmentNicname: "幕布", num: 4},{id: 3,  equipmentName: "设备类别3", equipmentNicname: "灯光", num: 4}, {id: 4,  equipmentName: "设备类别4", equipmentNicname: "电脑", num: 2}]
 ```
 
-##### 2.如下述数据结构，要求判断任意一个电源组 status 里的所有 is_enable 都为 true 则 true，只要有一个 false 则为 false。
+##### 2.如下述数据结构，要求判断任意一个总路组 status 里的所有 is_enable 都为 true 则 true，只要有一个 false 则为 false。
 
 ```javascript
-const all_powers = [
+const roads = [
   {
     status: [
-      { status: true, is_enable: true, name: "1路电源" },
-      { status: true, is_enable: true, name: "2路电源" },
-      { status: true, is_enable: true, name: "3路电源" },
-      { status: true, is_enable: true, name: "4路电源" }
+      { status: true, is_enable: true, name: "支路1" },
+      { status: true, is_enable: true, name: "支路2" },
+      { status: true, is_enable: true, name: "支路3" },
+      { status: true, is_enable: true, name: "支路4" },
     ],
     counts: 0,
-    id: 46,
-    time: "2020-03-03 10:35:47",
-    name: "总电源1"
+    id: 1,
+    name: "总路1",
   },
   {
     status: [
-      { status: true, is_enable: true, name: "1路电源" },
-      { status: true, is_enable: false, name: "2路电源" },
-      { status: true, is_enable: true, name: "3路电源" },
-      { status: true, is_enable: true, name: "4路电源" }
+      { status: true, is_enable: true, name: "支路1" },
+      { status: true, is_enable: false, name: "支路2" },
+      { status: true, is_enable: true, name: "支路3" },
+      { status: true, is_enable: true, name: "支路4" },
     ],
     counts: 0,
-    id: 46,
-    time: "2020-03-03 10:35:47",
-    name: "总电源2"
-  }
+    id: 1,
+    name: "总路2",
+  },
 ];
 
 // 方法一 多加了一个属性totalStatus，用来判断用
-for (let i = 0; i < all_powers.length; i++) {
+for (let i = 0; i < roads.length; i++) {
   let statusArr = [];
-  for (let status of all_powers[i].status) {
+  for (let status of roads[i].status) {
     statusArr.push(status.is_enable);
   }
   if (statusArr.includes(false)) {
-    all_powers[i].totalStatus = false;
+    roads[i].totalStatus = false;
   } else {
-    all_powers[i].totalStatus = true;
+    roads[i].totalStatus = true;
   }
-  console.log("all_powers", all_powers);
+  console.log("roads", roads);
 }
 
 // 方法二
 let result;
-all_powers.map(i => {
-  result = i.status.findIndex(ii => {
+roads.map((i) => {
+  result = i.status.findIndex((ii) => {
     return ii.is_enable === false;
   });
   if (result !== -1) {

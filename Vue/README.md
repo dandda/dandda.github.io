@@ -1,7 +1,31 @@
 vue
 
-vue 并不限制你的代码结构，但规定了要遵守的规则
+- [v-on](#v-on)
 
-1. 应用级的状态应该集中到单个 store 对象中
-2. 提交 mutation 是更改状态的唯一方法。并且是同步的
-3. 异步逻辑都应该封装到 action 里
+#### v-on
+
+> 通常我都会一个`v-on`（缩写@）绑定一个方法，当面试突然问到是否可以绑定多个方法时，我迟疑了并回答了好像可以，
+> 然后去浏览器搜了下，确实可以。因为我在项目中@click 一般只绑定一个方法，从来没有绑定多个方法。所以我才不确定。以此记录下。`v-on:click`缩写为`@click`,`v-on:mouseenter`缩写为`@mouseenter`
+
+例子：
+
+```html
+<button v-on="{mouseenter: onEnter,mouseleave: onLeave}">
+  鼠标移进，移除1
+</button>
+<button @mouseenter="onEnter" @mouseleave="onLeave">鼠标移进，移除2</button>
+<button @click="a(),b()">点我ab</button>
+```
+
+```javascript
+  a(){
+      console.log('a');
+    },
+  b(){
+      console.log('b');
+    },
+   onEnter(){console.log("mouseenter");},
+   onLeave(){console.log("mouseleave");}
+
+  }
+```

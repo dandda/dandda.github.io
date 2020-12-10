@@ -1,3 +1,7 @@
+#### js 是单线程还是多线程
+
+单线程
+
 #### 1.vue 是如何实现 mvvm 的,或者说对 mvvm 框架的理解？
 
 MVVM 表示的是 Model-View-ViewModel
@@ -82,3 +86,39 @@ module.exports{
 #### 5.vue 的双向数据绑定原理？
 
 vue.js 是采用数据劫持结合发布者-订阅者模式的方式，vue2 通过 Object.defineProperty()来数据劫持，vue3 是通过 proxy.总结就是收集数据依赖，然后装到订阅器里，匹配 dom 中的指令，进行赋值。
+
+#### 6.有三个页面（移动端，框架 vue），页面一是一个列表。列表中随机点击一个 item,进入到页面二，页面二是一个表单，表单有取消按钮和提交按钮，点击取消返回页面一，点击提交跳转到页面三。页面三显示的是提交成功的内容，有返回的按钮，返回到页面一。问：要这样实现时需注意的点及用户体验？
+
+答：页面一需要注意的是，它是一个列表，自然会出现很多数数据，所以肯定需要一个 loading 加载页面。
+页面一的数据应当存储在哪里，从页面一跳转到页面二，又从页面二跳回页面一，这里就会涉及到反复请求页面一的数据。面试官告诉我会把页面一的数据存到 vuex 里，数据没改变时无需请求数据。还有注意一个点就是在页面一往上滑动多条数据，跳到页面二，点击取消跳回页面一。页面一应当停留在之前离开的那条数据。页面二跳转到页面三应当用
+`this.$router.repalce()`,减少路由跳转记录。页面三跳到页面一用`this.$router.go(-1)`即可，就不需要`go(-2),go(-3)`之类的了。
+
+#### 7. 懒加载的原理
+
+一种网页性能优化方式，img 的 src 会触发 http 请求，一开始不设置 src 值，当图片要出现时再设置 src 的值。现在`<img>`新增了一个`loading`的属性，其中一个值`lazy`可以实现延迟加载图片。就是兼容性不太好，有部分浏览器不支持。
+
+#### 8.生成随机字符串（每次长度一样）
+
+```js
+// 方法一
+function randomString(len) {
+  // 字符串的长度
+  len = len || 32;
+  let t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678",
+    a = t.length,
+    newString = "";
+  for (let i = 0; i < len; i++) {
+    // Math.random()表示从0-1之间的随机数(包括0，不包括1)。charAt()字符串方法，返回指定位置的字符
+    newString += t.charAt(Math.floor(Math.random() * a));
+  }
+  return newString;
+}
+let re = randomString(8);
+console.log("re", re);
+
+// 方法二
+// .toString(36) 转化成36进制
+//.slice(-6);截取最后八位。
+let str = Math.random().toString(36).slice(-6);
+console.log("str", str);
+```

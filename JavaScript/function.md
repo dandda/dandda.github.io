@@ -7,7 +7,7 @@
 //function () {}
 
 //声明了一个匿名函数，并把匿名函数赋值给变量f
-let f = function() {};
+let f = function () {};
 //把f当成一个函数名
 f(); // 调用上面定义的匿名函数
 ```
@@ -21,7 +21,7 @@ f(); // 调用上面定义的匿名函数
 #### 匿名函数立即执行
 
 ```javascript
-(function() {})();
+(function () {})();
 ```
 
 > 说明
@@ -71,13 +71,13 @@ let handleData = {
           children: [
             {
               name: "楼宇1-楼层1-教室1",
-              id: 1111
+              id: 1111,
             },
             {
               name: "楼宇1-楼层1-教室2",
-              id: 1112
-            }
-          ]
+              id: 1112,
+            },
+          ],
         },
         {
           name: "楼宇1-楼层2",
@@ -85,11 +85,11 @@ let handleData = {
           children: [
             {
               name: "楼宇1-楼层2-教室1",
-              id: 1211
-            }
-          ]
-        }
-      ]
+              id: 1211,
+            },
+          ],
+        },
+      ],
     },
     {
       name: "楼宇2",
@@ -97,11 +97,11 @@ let handleData = {
       children: [
         {
           name: "楼宇2-楼层1",
-          id: 121
-        }
-      ]
-    }
-  ]
+          id: 121,
+        },
+      ],
+    },
+  ],
 };
 
 // 获取节点的所有叶子节点的个数
@@ -117,4 +117,19 @@ function getLeafCountTree(data) {
   }
 }
 console.log(getLeafCountTree(handleData)); //4
+```
+
+#### arguments 对象
+
+> 在调用函数的时候，会自动创建一个 arguments 对象。是所有（非箭头）函数中都可用的局部变量。
+> arguments 对象不是 Array,是一个类数组对象。因此你这么写`arguments,join()`（面试有被问到能不能这样）是会报错的，报`TypeError: arguments.join is not a function`.arguments 除了`length`和索引元素（`arguments[0]`这样写没问题，还可以设置它的值）外，没有任何数组的属性。`join`是数组才有的方法，因此报错。
+
+以下方法可以将`arguments`转为真正的数组。
+
+```javascript
+let arg = Array.prototype.slice.call(arguments);
+let arg = [].slice.call(arguments);
+// es6
+let arg = Array.from(arguments);
+let arg = [...arguments];
 ```

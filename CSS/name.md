@@ -27,12 +27,19 @@
 2. BEM 命名语法
 
 ```css
-  /* 该.loginform 块由三个元素组成： */
-  .loginform__username  输入用户名
-  .loginform__password 输入密码
-  .loginform__btn 允许用户提交 Web 表单
+/* 该.loginform 块由三个元素组成： */
+.loginform__username
+  输入用户名
+  .loginform__password
+  输入密码
+  .loginform__btn
+  允许用户提交
+  Web
+  表单
   三个修饰符是：
-  .loginform__username--error	出现错误时，会修改元素的可视属性，以便向用户显示错误。
-    .loginform__btn--inactive	修改元素的可视属性，使其具有非活动外观。
-    .loginform--errors
+  .loginform__username--error
+  出现错误时，会修改元素的可视属性，以便向用户显示错误。
+  .loginform__btn--inactive
+  修改元素的可视属性，使其具有非活动外观。
+  .loginform--errors;
 ```

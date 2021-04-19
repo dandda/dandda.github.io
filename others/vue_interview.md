@@ -22,7 +22,7 @@ vue 框架起到的就是 ViewModel 层的作用。
 #### 4 vue 的生命周期，vue-router 的生命周期？
 
 - vue 的生命周期：总共分为 8 个阶段创建前/后，载入前/后，更新前/后，销毁前/后。
-  创建前/后： 在 beforeCreated 阶段，vue 实例的挂载元素$el和数据对象data都为undefined，还未初始化。在created阶段，vue实例的数据对象data有了，$el 还没有。
+  创建前/后： 在 beforeCreate 阶段，vue 实例的挂载元素$el和数据对象data都为undefined，还未初始化。在created阶段，vue实例的数据对象data有了，$el 还没有。
   载入前/后：在 beforeMount 阶段，vue 实例的\$el 和 data 都初始化了，但还是挂载之前为虚拟的 dom 节点，data.message 还未替换。在 mounted 阶段，vue 实例挂载完成，data.message 成功渲染。
   更新前/后：当 data 变化时，会触发 beforeUpdate 和 updated 方法。
   销毁前/后：在执行 destroy 方法后，对 data 的改变不会再触发周期函数，说明此时 vue 实例已经解除了事件监听以及和 dom 的绑定，但是 dom 结构依然存在。
@@ -85,6 +85,7 @@ module.exports{
 
 #### 5.vue 的双向数据绑定原理？
 
+v-model
 vue.js 是采用数据劫持结合发布者-订阅者模式的方式，vue2 通过 Object.defineProperty()来数据劫持，vue3 是通过 proxy.总结就是收集数据依赖，然后装到订阅器里，匹配 dom 中的指令，进行赋值。
 
 #### 6.有三个页面（移动端，框架 vue），页面一是一个列表。列表中随机点击一个 item,进入到页面二，页面二是一个表单，表单有取消按钮和提交按钮，点击取消返回页面一，点击提交跳转到页面三。页面三显示的是提交成功的内容，有返回的按钮，返回到页面一。问：要这样实现时需注意的点及用户体验？
@@ -97,69 +98,22 @@ vue.js 是采用数据劫持结合发布者-订阅者模式的方式，vue2 通�
 
 一种网页性能优化方式，img 的 src 会触发 http 请求，一开始不设置 src 值，当图片要出现时再设置 src 的值。现在`<img>`新增了一个`loading`的属性，其中一个值`lazy`可以实现延迟加载图片。就是兼容性不太好，有部分浏览器不支持。
 
-#### 8.生成随机字符串（每次长度一样）
+#### 8.在浏览器中输入 URL，vue 组件执行了那些钩子函数。
 
-```js
-// 方法一
-function randomString(len) {
-  // 字符串的长度
-  len = len || 32;
-  let t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678",
-    a = t.length,
-    newString = "";
-  for (let i = 0; i < len; i++) {
-    // Math.random()表示从0-1之间的随机数(包括0，不包括1)。charAt()字符串方法，返回指定位置的字符
-    newString += t.charAt(Math.floor(Math.random() * a));
-  }
-  return newString;
-}
-let re = randomString(8);
-console.log("re", re);
+#### 9.封装组件
 
-// 方法二
-// .toString(36) 转化成36进制
-//.slice(-6);截取最后八位。
-let str = Math.random().toString(36).slice(-6);
-console.log("str", str);
-```
+#### html5 新增特性
 
-#### 9.统计字符串中的每个字符的个数
+###### 新增 api
 
-```js
-let str = "aaaaggkkkkkkktttkt";
+1.本地存储：localstorage,sessionstorage 2.地理 API：Geolocation 对象
+3.File API：file 和 filelist 对象
+4.drag 和 drag api
 
-// 方法一:使用对象
-function count(str) {
-  let obj = {};
-  str.replace(/[a-z]/g, (i) => {
-    !obj[i] ? (obj[i] = 1) : obj[i]++;
-  });
-  console.log("obj", obj);
-}
-count(str);
+###### 新增标签
 
-// 方法二：将字符转成数组
+<audio></audio>/<video></video>/<nav></nav>/<section></section>/<article></article>
 
-            var text = "";
-            //循环的套出每个字符出现的次数 str会慢慢的变短直到为空
-            while (str != "") {
-                //先将字符转成数组
-                // var newstr = str.split("");
-               var newstr = [...str]
-                var count = 0;
-                //求得第一个字符出现的次数
-                for (var i = 0; i < newstr.length; i++) {
-                    if (newstr[0] == newstr[i]) {
-                        count++;
-                    }
-                }
-                //在字符串中删掉跟第一个字符一样的所有字符
-                var re = new RegExp(newstr[0], "g");
-                str = str.replace(re, "");
-                text += newstr[0] + ":" + count + "次;";
-            }
-            console.log('text',text);
-            return text; //我这里返回的是一段文本 可以自己改写成自己想要的形式
-        }
-        numInstring(str)
-```
+###### 新增输入类型
+
+email,number 类型

@@ -14,6 +14,9 @@
 
 ---
 
+如何理解 web 标准与 w3c?
+web 标准是一系列标准的集合。包括结构化标准语言（html 等），表现标准语言（css）,行为标准语言（js）.这些标准大部分是由 w3c（web 开发的国际性联盟） 组织起草和发布的。为什么使用 web 标准：为了解决因浏览器版本不同，软硬件设备不同导致的需要多版本开发的问题。
+
 position 的值， relative 和 absolute 分别是相对于谁进行定位的？
 
 - absolute :生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
@@ -49,6 +52,9 @@ position 的值， relative 和 absolute 分别是相对于谁进行定位的？
 
         xmlHttp.open('GET','demo.php','true');
 
+          //post 请求的话，需要添加头部信息
+          //xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;")
+          //post参数放在send()方法里，参数的格式必须是：xxx=XXX&yyy=YYY格式。
         xmlHttp.send()
 
         xmlHttp.onreadystatechange = function(){
@@ -109,7 +115,7 @@ Presto 是挪威产浏览器 opera 的 "前任" 内核，最新的 opera 浏览�
 
 如何解决跨域问题
 
-JSONP：
+1.JSONP：
 
 原理是：动态插入 script 标签，通过 script 标签引入一个 js 文件，这个 js 文件载入成功后会执行我们在 url 参数中指定的函数，并且会把我们需要的 json 数据作为参数传入。
 
@@ -119,41 +125,40 @@ JSONP：
 
 JSONP：json+padding（内填充），顾名思义，就是把 JSON 填充到一个盒子里
 
-    <script>
-        function createJs(sUrl){
+```js
+//函数功能：添加script标签。	参数表示AJAX要请求的地址(一个外部的网页)。
+function addScriptTag(src) {
+  var script = document.createElement("script");
+  script.setAttribute("type", "text/javascript");
+  script.src = src;
+  document.body.appendChild(script);
+}
+//请求参数中添加一个callback参数，用来指定回调函数的名字，这对于JSONP是必须的。
+window.onload = function () {
+  addScriptTag("http://localhost:8020?callback=foo");
+};
+//回调函数。 一旦响应成功，会执行该方法
+function foo(data) {
+  alert(data);
+  console.log(data);
+}
+```
 
-            var oScript = document.createElement('script');
-            oScript.type = 'text/javascript';
-            oScript.src = sUrl;
-            document.getElementsByTagName('head')[0].appendChild(oScript);
-        }
-
-        createJs('jsonp.js');
-
-        box({
-           'name': 'test'
-        });
-
-        function box(json){
-            alert(json.name);
-        }
-    </script>
-
-CORS
+2.CORS
 
 服务器端对于 CORS 的支持，主要就是通过设置 Access-Control-Allow-Origin 来进行的。如果浏览器检测到相应的设置，就可以允许 Ajax 进行跨域的访问。
 
-通过修改 document.domain 来跨子域
+3.通过修改 document.domain 来跨子域
 
 将子域和主域的 document.domain 设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用 document.domain 进行跨域
 
 主域相同的使用 document.domain
 
-使用 window.name 来进行跨域
+4.使用 window.name 来进行跨域
 
 window 对象有个 name 属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个 window.name 的，每个页面对 window.name 都有读写的权限，window.name 是持久存在一个窗口载入过的所有页面中的
 
-使用 HTML5 中新引进的 window.postMessage 方法来跨域传送数据
+5.使用 HTML5 中新引进的 window.postMessage 方法来跨域传送数据
 
 还有 flash、在服务器上设置代理页面等跨域方式。个人认为 window.name 的方法既不复杂，也能兼容到几乎所有浏览器，这真是极好的一种跨域方法。
 
@@ -601,13 +606,14 @@ display:none 和 visibility:hidden 的区别？
 
 CSS 中 link 和@import 的区别是？
 
-    (1) link属于HTML标签，而@import是CSS提供的;
+    (1) link属于HTML标签，因此也可以用js操作dom来动态引入，而@import是CSS语法提供的;
 
-    (2) 页面被加载的时，link会同时被加载，而@import被引用的CSS会等到引用它的CSS文件被加载完再加载;
+    (2) 页面被加载的时，link会同时被加载；而@import引用的CSS要等页面加载完后才加载，因此会出现页面混乱的问题;
 
     (3) import只在IE5以上才能识别，而link是HTML标签，无兼容问题;
 
-    (4) link方式的样式的权重 高于@import的权重.
+    (4) link方式的样式的权重 高于@import的权重（有争议，这个不算作为区别的点）.
+    总结：不推荐使用@import。
 
 position:absolute 和 float 属性的异同
 
@@ -870,7 +876,7 @@ HTML 与 XHTML——二者有什么区别
 
         3,浮动外部元素
 
-        4,设置overflow为hidden或者auto12345678910111213141516171819202122
+        4,设置overflow为hidden或者auto
 
 DOM 操作——怎样添加、移除、移动、复制、创建和查找节点。
 
@@ -1271,7 +1277,6 @@ HTTP 状态码
         500 Internal Server Error  最常见的服务器端错误。
 
         503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
-    123456789101112131415161718192021222324252627282930
 
 说说你对 Promise 的理解
 

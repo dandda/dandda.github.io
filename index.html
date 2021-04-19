@@ -34,20 +34,21 @@
   <body>
     <!-- 遇到的问题 -->
     <!-- 清楚数据结构啊 -->
-    <!-- 
+   
     <!-- vue 前端显示过多数据（即渲染数据）时，会出现加载慢的问题。即长列表的性能优化。 -->
 
-    <!-- 官网后台遇到的问题
-    1.搞清get,put ,delete,post的区别  
-  2. 图片上传 new formData()
-3. 全局变量  import等必须清楚
-4. 请求接口时的先后顺序   await async promise
-    理清分页的思路 有时间去看看导出excel表格不使用插件如何做
+    <!-- 
+  
+    1. 全局变量  import等必须清楚
+    2. 请求接口时的先后顺序   await async promise
+    3. 理清分页的思路 有时间去看看导出excel表格不使用插件如何做
   
     -->
     <nav>
       <a href="#/">Home</a>
-     
+    <input type="number" oninput="getF()" id="num1">c is  <input oninput="getC()" type="number" id="num2"> f
+   
+   
     </nav>
     <div id="app">
 
@@ -55,6 +56,19 @@
     </div>
     <script>
 let str = "aaaaggkkkkkkktttkt";
+
+
+// 方法一:使用对象
+function count(str) {
+  let obj = {};
+  str.replace(/[a-z]/g, (i) => {
+    
+    !obj[i] ? (obj[i] = 1) : obj[i]++;
+   
+  });
+  
+}
+count(str);
    
 function numInstring(str) {
             var text = "";
@@ -75,12 +89,15 @@ function numInstring(str) {
                 str = str.replace(re, "");
                 text += newstr[0] + ":" + count + "次;";
             }
-            console.log('text',text);
+            // console.log('text',text);
             return text; //我这里返回的是一段文本 可以自己改写成自己想要的形式
         }
         numInstring(str)
-      // js-exercises,No.10第九道题目。
-
+      // js-exercises，NO.25
+     
+ 
+  
+      
       window.$docsify = {
         name: "",
         //页面右上角的挂件

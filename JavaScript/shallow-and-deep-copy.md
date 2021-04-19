@@ -8,15 +8,31 @@
 
 #### 浅复制的 case
 
+> 注意：扩展运算符和 Object.assign()对只有一层数据的对象和数组时的复制是互不影响的。但是对多层嵌套的对象和数组就表现出浅复制。
+
 ```js
-let obj = { a: 1, b: 2 };
+let obj = {
+  a: 1,
+  b: 2,
+  c: {
+    cc: 33,
+  },
+};
 // 扩展运算符
 let copy = { ...obj };
+copy.c.cc = 6; //会同时改变obj.c.cc的值
 ```
 
 ```js
-let obj = { a: 1, b: 2 };
-let copy = Object.assign({}, obj); // {a:1,b:2}
+let obj = {
+  a: 1,
+  b: 2,
+  c: {
+    cc: 33,
+  },
+};
+let copy = Object.assign({}, obj);
+copy.c.cc = 77; //会同时改变obj.c.cc的值
 ```
 
 ```js
@@ -30,8 +46,8 @@ let stu = {
   sex: "boy",
   skill: {
     sing: "good",
-    dance: "excellent"
-  }
+    dance: "excellent",
+  },
 };
 let stu1 = {};
 shallowCopy(stu1, stu);
@@ -73,7 +89,7 @@ function deepClone(obj) {
 
   // Handle Function
   if (obj instanceof Function) {
-    copy = function() {
+    copy = function () {
       return obj.apply(this, arguments);
     };
     return copy;

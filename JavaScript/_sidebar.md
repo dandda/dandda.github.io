@@ -2,7 +2,11 @@
 - [浅复制和深复制](JavaScript/shallow-and-deep-copy.md)
 - [循环遍历](JavaScript/loop-through.md)
 - Object
+  - [object](JavaScript/object.md)
   - [delete 操作符](JavaScript/delete-operator.md)
+- 原型
+  - [原型的理解](JavaScript/prototype.md)
+  - [继承](JavaScript/inherit.md)
 - **时间**
   - [时间戳](JavaScript/time-stamp.md)
 - **Array**
@@ -20,3 +24,6 @@
 - [onload 事件](JavaScript/onload.md)
 - [js 存储方式及其区别](JavaScript/storage-method.md)
 - [常用的正则表达式](JavaScript/regular-expression.md)
+- [请求方法的区别](JavaScript/request-methods.md)
+- [图片上传方法](JavaScript/image-upload.md)
+- [apply-call-bind](JavaScript/apply-call-bind.md)

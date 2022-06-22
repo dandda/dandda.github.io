@@ -112,7 +112,13 @@ vue.js 是采用数据劫持结合发布者-订阅者模式的方式，vue2 通�
 
 ###### 新增标签
 
-<audio></audio>/<video></video>/<nav></nav>/<section></section>/<article></article>
+```html
+<audio></audio>
+<video></video>
+<nav></nav>
+<section></section>
+<article></article>
+```
 
 ###### 新增输入类型
 

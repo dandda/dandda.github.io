@@ -20,4 +20,9 @@
   - [mac](mac/README.md)
   - [插件的坑](plugin/README.md)
 
-- [Git](git/README.md)
+- 代码版本管理
+
+  - [Git](git/README.md)
+
+- 经验之谈
+  - [关于项目](experience/index.md)

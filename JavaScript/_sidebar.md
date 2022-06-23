@@ -19,6 +19,9 @@
 - [字符串](JavaScript/string.md)
 - **ES6**
   - [let 与 const](JavaScript/let-and-const.md)
+- **事件**
+  - [事件流](JavaScript/event-streams.md)
+  - [事件处理程序](JavaScript/event-function.md)
 - [小技巧](JavaScript/tips.md)
 - [代码段](JavaScript/snippet.md)
 - [onload 事件](JavaScript/onload.md)
